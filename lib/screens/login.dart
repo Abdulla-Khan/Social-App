@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_app/widgets/clipper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -17,10 +18,13 @@ class _LoginPageState extends State<LoginPage> {
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: <Widget>[
-              Image(
-                height: MediaQuery.of(context).size.height / 3.2,
-                width: double.infinity,
-                image: const AssetImage('assets/login_background.jpg'),
+              ClipPath(
+                clipper: CurveClipper(),
+                child: Image(
+                  height: MediaQuery.of(context).size.height / 3.2,
+                  width: double.infinity,
+                  image: const AssetImage('assets/login_background.jpg'),
+                ),
               ),
               Text(
                 'Abdullah',
@@ -28,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: Theme.of(context).primaryColor,
                   fontSize: 34,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 1.0,
+                  letterSpacing: 10.0,
                 ),
               ),
               const SizedBox(
