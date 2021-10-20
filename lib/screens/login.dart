@@ -12,7 +12,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Container(
           height: MediaQuery.of(context).size.height,
           child: Column(
@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               GestureDetector(
