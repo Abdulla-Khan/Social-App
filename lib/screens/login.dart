@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
               ClipPath(
                 clipper: CurveClipper(),
                 child: Image(
-                  height: MediaQuery.of(context).size.height / 3.2,
+                  height: MediaQuery.of(context).size.height / 3.25,
                   width: double.infinity,
                   image: const AssetImage('assets/login_background.jpg'),
                 ),
@@ -73,7 +73,12 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => HomeScreen(),
+                  ),
+                ),
                 child: Container(
                   margin: const EdgeInsets.symmetric(horizontal: 60),
                   alignment: Alignment.center,
