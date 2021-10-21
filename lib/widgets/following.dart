@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/data/data.dart';
+import 'package:social_app/models/user_models.dart';
 
 class FollowingUser extends StatefulWidget {
   const FollowingUser({Key? key}) : super(key: key);
@@ -11,8 +12,6 @@ class FollowingUser extends StatefulWidget {
 class _FollowingUserState extends State<FollowingUser> {
   @override
   Widget build(BuildContext context) {
-    List<User> userList = User.users;
-
     return Column(
       children: [
         Column(
@@ -32,11 +31,12 @@ class _FollowingUserState extends State<FollowingUser> {
             Container(
               height: 80,
               child: ListView.builder(
+                physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.only(left: 10),
                 scrollDirection: Axis.horizontal,
-                itemCount: userList.length,
+                itemCount: users.length,
                 itemBuilder: (BuildContext context, index) {
-                  User user = userList[index];
+                  User user = users[index];
                   return GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -58,7 +58,7 @@ class _FollowingUserState extends State<FollowingUser> {
                           width: 60,
                           fit: BoxFit.cover,
                           image: AssetImage(
-                            user.profileimg,
+                            user.profileImageUrl,
                           ),
                         ),
                       ),

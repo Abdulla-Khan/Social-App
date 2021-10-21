@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/data/data.dart';
+import 'package:social_app/models/post_model.dart';
 import 'package:social_app/widgets/following.dart';
+import 'package:social_app/widgets/posts.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,11 +14,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  late PageController _pageController;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
   }
 
   @override
@@ -57,8 +61,13 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
-        children: const [
-          FollowingUser(),
+        children: [
+          const FollowingUser(),
+          Ppost(
+            pagecontroller: _pageController,
+            past: posts,
+            title: 'Posts',
+          )
         ],
       ),
     );
