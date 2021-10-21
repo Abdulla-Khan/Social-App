@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/widgets/clipper.dart';
 
+import 'home_screen.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -14,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
             children: <Widget>[
@@ -23,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: Image(
                   height: MediaQuery.of(context).size.height / 3.25,
                   width: double.infinity,
-                  image: const AssetImage('assets/login_background.jpg'),
+                  image: const AssetImage('asset/login_background.jpg'),
                 ),
               ),
               Text(
@@ -73,10 +75,10 @@ class _LoginPageState extends State<LoginPage> {
                 height: 40,
               ),
               GestureDetector(
-                onTap: () => Navigator.pushReplacement(
+                onTap: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (_) => HomeScreen(),
+                    builder: (_) => const HomeScreen(),
                   ),
                 ),
                 child: Container(

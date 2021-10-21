@@ -1,6 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:social_app/data/data.dart';
+import 'package:social_app/widgets/following.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,10 +11,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  late TabController tabController;
-  void init() {
+  late TabController _tabController;
+
+  @override
+  void initState() {
     super.initState();
-    tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
   }
 
   @override
@@ -22,7 +24,6 @@ class _HomeScreenState extends State<HomeScreen>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        brightness: Brightness.light,
         iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
         title: Text(
           "Abdullah",
@@ -35,16 +36,16 @@ class _HomeScreenState extends State<HomeScreen>
         ),
         bottom: TabBar(
           indicatorWeight: 3,
-          controller: tabController,
+          controller: _tabController,
           labelColor: Theme.of(context).primaryColor,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             fontSize: 18,
           ),
-          tabs: [
+          tabs: const [
             Tab(
               text: "Trending",
             ),
@@ -53,6 +54,12 @@ class _HomeScreenState extends State<HomeScreen>
             ),
           ],
         ),
+      ),
+      body: ListView(
+        physics: const BouncingScrollPhysics(),
+        children: const [
+          FollowingUser(),
+        ],
       ),
     );
   }
