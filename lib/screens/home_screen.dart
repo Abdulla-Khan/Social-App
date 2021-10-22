@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_app/data/data.dart';
 import 'package:social_app/models/post_model.dart';
+import 'package:social_app/widgets/custom_drawer.dart';
 import 'package:social_app/widgets/following.dart';
 import 'package:social_app/widgets/posts.dart';
 
@@ -59,6 +60,7 @@ class _HomeScreenState extends State<HomeScreen>
           ],
         ),
       ),
+      drawer: const customDrawer(),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         children: [

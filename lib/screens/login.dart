@@ -15,7 +15,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        physics: const ClampingScrollPhysics(),
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: Column(
@@ -23,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
               ClipPath(
                 clipper: CurveClipper(),
                 child: Image(
-                  height: MediaQuery.of(context).size.height / 3.25,
+                  height: MediaQuery.of(context).size.height / 3.5,
                   width: double.infinity,
                   image: const AssetImage('asset/login_background.jpg'),
                 ),
