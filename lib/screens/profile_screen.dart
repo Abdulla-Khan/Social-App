@@ -141,7 +141,7 @@ class _ProfileState extends State<Profile> {
                 past: widget.user.posts),
             Ppost(
                 pagecontroller: _yourFavorPageController,
-                title: "Your Posts",
+                title: "Your Favourites",
                 past: widget.user.posts),
             SizedBox(
               height: 50,

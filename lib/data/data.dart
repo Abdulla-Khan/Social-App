@@ -159,7 +159,7 @@ final _yourFavorites = [_post0, _post2, _post4];
 final User currentUser = User(
   profileImageUrl: 'asset/user.jpg',
   backgroundImageUrl: 'asset/user_background.jpg',
-  name: 'Rebecca',
+  name: 'Abdullah',
   following: 453,
   followers: 937,
   posts: _yourPosts,
